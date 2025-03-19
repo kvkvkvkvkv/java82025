@@ -8,6 +8,11 @@ public class Streams {
 
         //static method reference
         nums.forEach(Streams::printInteger); //Method Reference
+        nums.forEach(System.out::println); //inbuilt static method
+        nums.stream()
+                .filter(ele -> ele%2==0) //boolean logic only
+                .forEach(System.out::println); //print even numbers
+
     }
 
     public static void printInteger(int val) {

@@ -36,9 +36,24 @@ public class Streams {
                 .forEach(System.out::println);
 
         int val = nums.stream()
+                //.reduce(0, (a,b) -> a+b)
                 .reduce(10, Integer::sum); //seed value sum starts with 10 //||se well reduce
-
+        //aggregate and number from stream
+        //10 1
+        //11 2
+        //13 3
+        //16 4
+        //20 5
+        //25 6
+        //31 7
+        //38 8
+        //46 9
+        //55
         log.info("Add numbers = {}", val);
+
+        int max = nums.stream()
+                .reduce(0, (a,b) -> a>b?a:b);
+        log.info("play reduce = {}", max);
 
     }
 

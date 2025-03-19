@@ -55,6 +55,15 @@ public class Streams {
                 .reduce(0, (a,b) -> a>b?a:b);
         log.info("play reduce = {}", max);
 
+        int sum = nums.stream()
+                .map(ele -> ele * ele)
+                .reduce(0, Integer::sum);
+        log.info("Sum of Squares = {}", sum);
+
+
+        int sum2 = nums.stream()
+                .reduce(0, (x, y) -> x*x + y*y);
+        log.info("Wrong Sum of Squares = {}, since it adds same square multiple times", sum2);
     }
 
     public void printCourses(List<String> courses) {
@@ -76,6 +85,8 @@ public class Streams {
         courses.stream()
                 .map(course -> course.length())
                 .forEach(System.out::println);
+
+
     }
 
     public static void printInteger(int val) {

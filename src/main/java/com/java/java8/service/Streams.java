@@ -64,6 +64,16 @@ public class Streams {
         int sum2 = nums.stream()
                 .reduce(0, (x, y) -> x*x + y*y);
         log.info("Wrong Sum of Squares = {}, since it adds same square multiple times", sum2);
+
+        log.info("Distinct");
+        nums.stream()
+                .distinct()
+                .forEach(System.out::println);
+
+        log.info("Sorted");
+        nums.stream()
+                .sorted()
+                .forEach(System.out::println);
     }
 
     public void printCourses(List<String> courses) {
@@ -86,6 +96,11 @@ public class Streams {
                 .map(course -> course.length())
                 .forEach(System.out::println);
 
+
+        log.info("Sorted");
+        courses.stream()
+                .sorted()
+                .forEach(System.out::println);
 
     }
 

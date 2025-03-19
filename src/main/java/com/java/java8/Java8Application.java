@@ -22,7 +22,7 @@ public class Java8Application {
 	}
 
 	public void run() {
-		streams.print(Arrays.asList(11,2,13,4,15,16,7,18,9));
+		streams.print(Arrays.asList(11,2,13,4,4,4,2,18,9));
 		streams.printCourses(Arrays.asList("Math", "Science", "English", "Physics", "Psycology", "Physiology"));
 	}
 

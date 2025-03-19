@@ -3,6 +3,7 @@ package com.java.java8.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,7 +78,6 @@ public class Streams {
     }
 
     public void printCourses(List<String> courses) {
-
         log.info("All Courses");
         courses.forEach(System.out::println);
 
@@ -96,12 +96,25 @@ public class Streams {
                 .map(course -> course.length())
                 .forEach(System.out::println);
 
-
         log.info("Sorted");
         courses.stream()
                 .sorted()
                 .forEach(System.out::println);
 
+        log.info("Sorted comaparator natural order");
+        courses.stream()
+                .sorted(Comparator.naturalOrder())
+                .forEach(System.out::println);
+
+        log.info("Sorted comaparator reverse order");
+        courses.stream()
+                .sorted(Comparator.reverseOrder())
+                .forEach(System.out::println);
+
+        log.info("Sorted own");
+        courses.stream()
+                .sorted(Comparator.comparing(String::length))
+                .forEach(System.out::println);
     }
 
     public static void printInteger(int val) {

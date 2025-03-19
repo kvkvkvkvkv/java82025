@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -75,6 +76,16 @@ public class Streams {
         nums.stream()
                 .sorted()
                 .forEach(System.out::println);
+
+        log.info("Create new List");
+        List<Integer> newList = nums.stream()
+                .map(ele -> ele* ele)
+                .toList();
+
+        // intermediate and terminal operators
+        // intermediate // returns stream always
+        // terminal // optional or values non stream values
+        // triggred with terminal operations only
     }
 
     public void printCourses(List<String> courses) {

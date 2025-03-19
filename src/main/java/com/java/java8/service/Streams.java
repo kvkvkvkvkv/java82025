@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -33,6 +34,12 @@ public class Streams {
                 .filter(ele -> ele%2 == 0)
                 .map(ele -> ele*ele)
                 .forEach(System.out::println);
+
+        int val = nums.stream()
+                .reduce(10, Integer::sum); //seed value sum starts with 10 //||se well reduce
+
+        log.info("Add numbers = {}", val);
+
     }
 
     public void printCourses(List<String> courses) {
@@ -48,6 +55,11 @@ public class Streams {
         log.info(">7 length");
         courses.stream()
                 .filter(course -> course.length()>7)
+                .forEach(System.out::println);
+
+        log.info("length of courses");
+        courses.stream()
+                .map(course -> course.length())
                 .forEach(System.out::println);
     }
 
